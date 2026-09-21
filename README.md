@@ -3,7 +3,8 @@
 > **New. Innovation Concept.**
 ---
 ### Concept & Intellectual Property
-**Women's Undergarment — Patent Pending**  Next-generation anatomical architecture featuring an unseamed protected region and elongated gusset geometry designed to eliminate friction and ensure maximum barrier integrity.
+**Women's Undergarment — Patent Pending**  
+Next-generation anatomical architecture featuring an unseamed protected region and elongated gusset geometry designed to eliminate friction and ensure maximum barrier integrity.
 <p align="center">  <img src="images/wings.jpg" alt="Amour Virgin Concept" width="280"></p>
 ---
 ### Project Status
