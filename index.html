@@ -1,300 +1,43 @@
-<!DOCTYPE html>
-<html lang="ru" data-theme="sky">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMOUR VIRGIN | Controlled-Rupture Mechanics</title>
-    <style>
-        :root[data-theme="sky"] {
-            --bg-color: #87ceeb;
-            --container-bg: #ffffff;
-            --border-color: #b0e0e6;
-            --text-main: #1a2b3c;
-            --text-muted: #4a637d;
-            --accent-color: #0077b6;
-            --tag-color: #023e8a;
-            --status-bg: #e0f7fa;
-            --status-border: #00b4d8;
-            --strike-color: #ff3333;
-            --correction-color: #008000;
-        }
-
-        :root[data-theme="blood"] {
-            --bg-color: #1a0505;
-            --container-bg: #2b0b0b;
-            --border-color: #5c1414;
-            --text-main: #f8d7da;
-            --text-muted: #d9a0a0;
-            --accent-color: #ff3333;
-            --tag-color: #ff6666;
-            --status-bg: #3d0d0d;
-            --status-border: #ff3333;
-            --strike-color: #ff0000;
-            --correction-color: #00ff66;
-        }
-
-        body {
-            margin: 0;
-            padding: 20px 10px;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            transition: background-color 0.4s ease;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 850px;
-            background: var(--container-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 30px;
-            box-sizing: border-box;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-            transition: background-color 0.4s ease, border-color 0.4s ease;
-            position: relative;
-        }
-
-        .theme-switch {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .theme-btn {
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-
-        .theme-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .btn-sky { background: #87ceeb; color: #003049; }
-        .btn-blood { background: #800000; color: #ffffff; }
-
-        .header-video {
-            width: 100%;
-            margin-bottom: 25px;
-            margin-top: 25px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
-
-        .header-video video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .img-block {
-            text-align: center;
-            margin: 25px 0;
-        }
-
-        .img-block img {
-            height: auto;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-        .wings-img { max-width: 300px; width: 100%; }
-        .bow-img { max-width: 220px; width: 100%; }
-
-        .tag {
-            color: var(--tag-color);
-            font-size: 0.85em;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-
-        h1 {
-            color: var(--text-main);
-            font-size: 2.5em;
-            margin: 0 0 5px 0;
-            letter-spacing: 2px;
-        }
-
-        .new-badge {
-            font-size: 1.2em;
-            font-weight: 800;
-            color: var(--accent-color);
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .strikethrough {
-            text-decoration: line-through;
-            color: var(--strike-color);
-            font-weight: bold;
-            margin-right: 4px;
-        }
-
-        .correction {
-            color: var(--correction-color);
-            font-weight: bold;
-        }
-
-        h3 {
-            color: var(--text-main);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 35px;
-            font-size: 1.35em;
-        }
-
-        p {
-            line-height: 1.65;
-            color: var(--text-muted);
-            font-size: 1.05em;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        ul li {
-            padding: 12px 0;
-            border-bottom: 1px dashed var(--border-color);
-            color: var(--text-main);
-        }
-
-        ul li strong {
-            color: var(--accent-color);
-        }
-
-        .contacts a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contacts a:hover {
-            text-decoration: underline;
-        }
-
-        .status-bar {
-            margin-top: 35px;
-            background: var(--status-bg);
-            border: 1px solid var(--status-border);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.9em;
-            color: var(--accent-color);
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 0.85em;
-            color: var(--text-muted);
-            margin-top: 25px;
-            font-style: italic;
-        }
-    </style>
-</head>
-<body>
-
+<!DOCTYPE html><html lang="en" data-theme="sky"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>AMOUR VIRGIN | Controlled-Rupture Mechanics</title>    <style>        :root[data-theme="sky"] {            --bg-color: #87ceeb;            --container-bg: #ffffff;            --border-color: #b0e0e6;            --text-main: #1a2b3c;            --text-muted: #4a637d;            --accent-color: #0077b6;            --tag-color: #023e8a;            --status-bg: #e0f7fa;            --status-border: #00b4d8;            --strike-color: #ff3333;            --correction-color: #008000;        }
+        :root[data-theme="blood"] {            --bg-color: #1a0505;            --container-bg: #2b0b0b;            --border-color: #5c1414;            --text-main: #f8d7da;            --text-muted: #d9a0a0;            --accent-color: #ff3333;            --tag-color: #ff6666;            --status-bg: #3d0d0d;            --status-border: #ff3333;            --strike-color: #ff0000;            --correction-color: #00ff66;        }
+        body {            margin: 0;            padding: 20px 10px;            background-color: var(--bg-color);            color: var(--text-main);            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;            display: flex;            justify-content: center;            transition: background-color 0.4s ease;        }
+        .container {            width: 100%;            max-width: 850px;            background: var(--container-bg);            border: 1px solid var(--border-color);            border-radius: 16px;            padding: 30px;            box-sizing: border-box;            box-shadow: 0 12px 35px rgba(0,0,0,0.25);            transition: background-color 0.4s ease, border-color 0.4s ease;            position: relative;        }
+        .theme-switch {            position: absolute;            top: 20px;            right: 20px;            z-index: 10;        }
+        .theme-btn {            border: 1px solid var(--border-color);            background: transparent;            color: var(--text-main);            padding: 6px 14px;            border-radius: 20px;            font-size: 0.75em;            font-weight: bold;            letter-spacing: 1px;            cursor: pointer;            transition: all 0.3s ease;        }
+        .theme-btn:hover {            border-color: var(--accent-color);            color: var(--accent-color);        }
+        .header-banner {            width: 100%;            margin-bottom: 25px;            margin-top: 25px;            border-radius: 10px;            overflow: hidden;            border: 1px solid var(--border-color);            box-shadow: 0 6px 18px rgba(0,0,0,0.15);        }
+        .header-banner img {            width: 100%;            height: auto;            display: block;        }
+        .img-block {            text-align: center;            margin: 25px 0;        }
+        .img-block img {            height: auto;            border-radius: 8px;            display: inline-block;        }
+        .wings-img { max-width: 300px; width: 100%; }        .bow-img { max-width: 220px; width: 100%; }
+        .tag {            color: var(--tag-color);            font-size: 0.85em;            font-weight: bold;            letter-spacing: 2px;            margin-bottom: 8px;        }
+        h1 {            color: var(--text-main);            font-size: 2.5em;            margin: 0 0 5px 0;            letter-spacing: 2px;        }
+        .new-badge {            font-size: 1.2em;            font-weight: 800;            color: var(--accent-color);            letter-spacing: 3px;            margin-bottom: 10px;        }
+        .strikethrough {            text-decoration: line-through;            color: var(--strike-color);            font-weight: bold;            margin-right: 4px;        }
+        .correction {            color: var(--correction-color);            font-weight: bold;        }
+        h3 {            color: var(--text-main);            border-bottom: 2px solid var(--border-color);            padding-bottom: 8px;            margin-top: 35px;            font-size: 1.35em;        }
+        p {            line-height: 1.65;            color: var(--text-muted);            font-size: 1.05em;            margin-bottom: 15px;        }
+        ul {            list-style: none;            padding: 0;            margin: 0;        }
+        ul li {            padding: 12px 0;            border-bottom: 1px dashed var(--border-color);            color: var(--text-main);        }
+        ul li strong {            color: var(--accent-color);        }
+        .contacts a {            color: var(--accent-color);            text-decoration: none;            font-weight: bold;        }
+        .contacts a:hover {            text-decoration: underline;        }
+        .status-bar {            margin-top: 35px;            background: var(--status-bg);            border: 1px solid var(--status-border);            padding: 12px;            border-radius: 8px;            text-align: center;            font-size: 0.9em;            color: var(--accent-color);            font-weight: bold;            letter-spacing: 1px;        }
+        .footer {            text-align: center;            font-size: 0.85em;            color: var(--text-muted);            margin-top: 25px;            font-style: italic;        }    </style></head><body>
 <div class="container">
-
-    <div class="theme-switch">
-        <button class="theme-btn btn-sky" onclick="setTheme('sky')">Sky Blue</button>
-        <button class="theme-btn btn-blood" onclick="setTheme('blood')">Blood Red</button>
-    </div>
-
-    <!-- 1. ВЕРХНЕЕ ВИДЕО НА ВСЮ ШИРИНУ -->
-    <div class="header-video">
-        <video controls playsinline autoplay muted loop poster="images/banner.jpg">
-            <source src="images/banner.mp4" type="video/mp4">
-            <img src="images/banner.jpg" alt="Amour Virgin Banner">
-        </video>
-    </div>
-
-    <div class="new-badge">NEW. // РАЙСКОЕ НАСЛАЖДЕНИЕ</div>
-    <div class="tag">[18+ STRICTLY ADULT ONLY] // PATENT PENDING</div>
-    <h1>AMOUR VIRGIN</h1>
-
-    <p><b>Первая в мире анатомическая архитектура с механизмом контролируемого разрыва (Controlled-Rupture Mechanics).</b> Двухосная стабильность при повседневном ношении и мгновенное точечное разделение строго по заданной траектории при приложении рассчитанного усилия. <i>Мы укажем точный путь в мир наслаждения.</i></p>
-
-    <!-- 2. КОНЦЕПТ И КРЫЛЬЯ -->
-    <h3>CONTROLLED STRUCTURAL SEPARATION: FUNCTIONAL CROTCH ASSEMBLY</h3>
-    <p><b>Women's Undergarment — Patent Pending</b></p>
-    <p>Классическое бельё создавалось по стандартам прошлого века. <b>AMOUR VIRGIN</b> полностью переосмысляет анатомическую <del class="strikethrough">защиту</del><span class="correction">доступность</span> паховой зоны:</p>
-
-    <div class="img-block">
-        <img src="images/wings.jpg" alt="Amour Virgin Concept" class="wings-img">
-    </div>
-
-    <!-- 3. КЛЮЧЕВЫЕ МЕХАНИКИ -->
-    <h3>KEY STRUCTURAL MECHANICS</h3>
-    <ul>
-        <li><strong>[01] BI-AXIAL STRUCTURAL STABILITY:</strong> 100% прочность и абсолютная барьерная целостность в двух плоскостях при обычных нагрузках, растяжении и повседневной носке.</li>
-        <li><strong>[02] PREDETERMINED MECHANICAL FORCE:</strong> Защитный барьер держит девственную защиту до тех пор, пока не приложено точечное направленное усилие заданной силы.</li>
-        <li><strong>[03] VARIABLE DENSITY PROFILE:</strong> Специальный градиент плотности ткани и профилирование волокон направляют разрыв строго по продольной оси паховой зоны.</li>
-        <li><strong>[04] FOCUSED FUNCTIONAL ZONE:</strong> Разделение происходит строго внутри функциональной зоны — ровно, эстетично и без хаотичного повреждения самого изделия.</li>
-    </ul>
-
-    <!-- 4. КЛЮЧЕВЫЕ ТЕХНОЛОГИИ -->
-    <h3>CORE TECHNOLOGY & ACTIVATION MECHANICS</h3>
-    <ul>
-        <li><strong>ONE-TIME ACTIVATION (SINGLE-USE BARRIER):</strong> Активация единого мгновения. Анатомический барьер запроектирован исключительно для единственного, самого важного момента. Изящное однократное срабатывание, созданное ради одной-единственной особенной истории.</li>
-        <li><strong>GRADIENT RUPTURABLE BARRIER:</strong> Многослойная ластовица с переменной плотностью волокон, настроенная на моментальный векторный разрыв под физическим импульсом. <i>Каждый раз как в первый. Мы первые всегда.</i></li>
-        <li><strong>ADVANCED TEXTILE ERGONOMICS:</strong> Высокотехнологичный гибрид натуральных и синтетических нитей для идеального анатомического прилегания без трения и давления.</li>
-    </ul>
-
-    <!-- 5. СТАТУС ПРОЕКТА -->
-    <h3>INTELLECTUAL PROPERTY & STATUS</h3>
-    <ul>
-        <li><b>RESTRICTION:</b> 18+ Adult Special / Functional Protective Gear</li>
-        <li><b>PATENT STATUS:</b> Patent Pending (Заявка зафиксирована)</li>
-    </ul>
-
-    <!-- 6. КОНТАКТЫ -->
-    <h3>CONTACT & INVESTOR INQUIRIES</h3>
-    <p class="contacts">
-        • <b>Email:</b> <a href="mailto:elias.u.winson@gmail.com">elias.u.winson@gmail.com</a><br>
-        • <b>Instagram:</b> <a href="https://instagram.com/amourvirgin" target="_blank">@amourvirgin</a><br>
-        • <b>Official Site:</b> <a href="https://elias79winson.github.io/amourvirgin" target="_blank">elias79winson.github.io/amourvirgin</a>
-    </p>
-
-    <!-- 7. ФИНАЛ: ЛУК СО СТРЕЛОЙ -->
-    <div class="img-block">
-        <img src="images/bow.jpg" alt="Amour Virgin Bow" class="bow-img">
-    </div>
-
-    <div class="status-bar">
-        SYSTEM READY // ALL RIGHTS RESERVED
-    </div>
-
-    <div class="footer">
-        © 2026 AMOUR VIRGIN. ALL RIGHTS RESERVED.
-    </div>
-
+    <div class="theme-switch">        <button class="theme-btn" onclick="toggleTheme()" id="themeToggleBtn">MODE // BLOOD</button>    </div>
+    <!-- HEADER BANNER -->    <div class="header-banner">        <img src="images/banner.jpg" alt="Amour Virgin Banner">    </div>
+    <div class="new-badge">NEW. // HEAVENLY DELIGHT</div>    <div class="tag">[18+ STRICTLY ADULT ONLY] // PATENT PENDING</div>    <h1>AMOUR VIRGIN</h1>
+    <p><b>The world’s first anatomical architecture engineered with Controlled-Rupture Mechanics.</b> Bi-axial structural stability during daily wear, delivering instantaneous, localized separation along a predefined trajectory upon applying a predetermined mechanical force. <i>We pave the precise pathway to ultimate pleasure.</i></p>
+    <!-- CONCEPT & WINGS -->    <h3>CONTROLLED STRUCTURAL SEPARATION: FUNCTIONAL CROTCH ASSEMBLY</h3>    <p><b>Women's Undergarment — Patent Pending</b></p>    <p>Conventional lingerie was engineered around last century’s paradigms. <b>AMOUR VIRGIN</b> completely redefines anatomical <del class="strikethrough">protection</del><span class="correction">accessibility</span> in the pelvic zone:</p>
+    <div class="img-block">        <img src="images/wings.jpg" alt="Amour Virgin Concept" class="wings-img">    </div>
+    <!-- KEY MECHANICS -->    <h3>KEY STRUCTURAL MECHANICS</h3>    <ul>        <li><strong>[01] BI-AXIAL STRUCTURAL STABILITY:</strong> Uncompromised 100% integrity and barrier protection in two distinct axes under everyday mechanical stress, stretching, and activity.</li>        <li><strong>[02] PREDETERMINED MECHANICAL FORCE:</strong> The barrier preserves its pristine virgin protection until targeted mechanical force is intentionally applied.</li>        <li><strong>[03] VARIABLE DENSITY PROFILE:</strong> Engineered gradient fiber density directs structural separation strictly along the longitudinal axis of the crotch zone.</li>        <li><strong>[04] FOCUSED FUNCTIONAL ZONE:</strong> Rupture is strictly localized within the functional zone — clean, aesthetic, without compromising the overall garment.</li>    </ul>
+    <!-- CORE TECHNOLOGY -->    <h3>CORE TECHNOLOGY & ACTIVATION MECHANICS</h3>    <ul>        <li><strong>ONE-TIME ACTIVATION (SINGLE-USE BARRIER):</strong> Single-moment activation. The anatomical barrier is engineered exclusively for a single, defining moment. An elegant one-time activation crafted for a truly unique story.</li>        <li><strong>GRADIENT RUPTURABLE BARRIER:</strong> Multi-layered gusset featuring variable fiber density engineered for instant directional rupture upon physical impulse. <i>Every time like the first. We are always first.</i></li>        <li><strong>ADVANCED TEXTILE ERGONOMICS:</strong> High-tech hybrid blend of advanced natural and synthetic fibers for optimal anatomical contouring without friction.</li>    </ul>
+    <!-- STATUS -->    <h3>INTELLECTUAL PROPERTY & STATUS</h3>    <ul>        <li><b>RESTRICTION:</b> 18+ Adult Special / Functional Protective Gear</li>        <li><b>PATENT STATUS:</b> Patent Pending (Provisional Application Filed)</li>    </ul>
+    <!-- CONTACTS -->    <h3>CONTACT & INVESTOR INQUIRIES</h3>    <p class="contacts">        • <b>Email:</b> <a href="mailto:elias.u.winson@gmail.com">elias.u.winson@gmail.com</a><br>        • <b>Instagram:</b> <a href="https://instagram.com/amourvirgin" target="_blank">@amourvirgin</a><br>        • <b>Official Site:</b> <a href="https://elias79winson.github.io/amourvirgin" target="_blank">elias79winson.github.io/amourvirgin</a>    </p>
+    <!-- FOOTER BOW -->    <div class="img-block">        <img src="images/bow.jpg" alt="Amour Virgin Bow" class="bow-img">    </div>
+    <div class="status-bar">        SYSTEM READY // ALL RIGHTS RESERVED    </div>
+    <div class="footer">        © 2026 AMOUR VIRGIN. ALL RIGHTS RESERVED.    </div>
 </div>
-
-<script>
-    function setTheme(themeName) {
-        document.documentElement.setAttribute('data-theme', themeName);
-    }
-</script>
-
-</body>
-</html>
+<script>    function toggleTheme() {        const currentTheme = document.documentElement.getAttribute('data-theme');        const newTheme = currentTheme === 'sky' ? 'blood' : 'sky';        document.documentElement.setAttribute('data-theme', newTheme);        document.getElementById('themeToggleBtn').innerText = newTheme === 'sky' ? 'MODE // BLOOD' : 'MODE // SKY';    }</script>
+</body></html>
