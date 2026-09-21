@@ -15,3 +15,4 @@ Next-generation anatomical architecture featuring an unseamed protected region a
 <p align="center">
   <img src="wings.jpg" alt="Amour Virgin Concept" width="280">
 </p>
+Project StatusCATEGORY: 18+ Special / Protective UndergarmentsSTAGE: Desk Research / Concept PrototypingSTATUS: Patent PendingContacts & InquiriesEmail: elias.u.winson@gmail.comInstagram: @amourvirginOfficial Site: elias79winson.github.io/amourvirgin© 2026 AMOUR VIRGIN. ALL RIGHTS RESERVED.
